@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Jake's To-Do APP</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    />
+  </head>
+  <body>
+    <!-- Source of the images -->
+    <div class="notice">
+      <p>
+        <span class="opacity">
+          Images courtesy of
+          <a href="http://unsplash.com/">unsplash</a>
+        </span>
+      </p>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <div>
+        <h2 class="opacity">Jake's To-Do List</h2>
+      </div>
+      <div class="location opacity">
+        <div id="js-location" class="city_color"></div>
+        <div id="js-temp"></div>
+      </div>
+    </header>
+
+    <!-- Clock and Greeting -->
+    <div class="clockContainer margin_100">
+      <h1 id="js-clock" class="clock opacity">00:00</h1>
+      <form action="" id="js-form" class="form">
+        <input class="opacity" type="text" placeholder="What is your name?" />
+      </form>
+      <h3 id="js-greeting" class="greeting"></h3>
+    </div>
+
+    <!-- Table of To-Do list -->
+    <div class="listContainer margin_50 opacity">
+      <h2>today's to-do list</h2>
+      <form action="" id="js-todoForm">
+        <input type="text" placeholder="Add New Todo" />
+      </form>
+      <ul id="js-todoList"></ul>
+    </div>
+
+    <script src="assets/bg.js"></script>
+    <script src="assets/location.js"></script>
+    <script src="assets/clock.js"></script>
+    <script src="assets/greeting.js"></script>
+    <script src="assets/todo.js"></script>
+  </body>
+</html>

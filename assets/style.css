@@ -1,0 +1,211 @@
+/* General */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.margin_50 {
+  margin: 50px auto;
+}
+
+.margin_100 {
+  margin: 100px auto;
+}
+
+.opacity {
+  opacity: 0.7;
+}
+
+html {
+  font: normal 16px sans-serif;
+  color: #f7f7f7;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.bgImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: auto;
+  animation: fadeIn 1s linear;
+}
+
+@media all and (max-width: 1200px) {
+  .bgImg {
+    width: 1400px;
+  }
+}
+
+/* Notice */
+.notice {
+  position: relative;
+  font-size: 15px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+}
+
+.notice span {
+  background-color: #555;
+  padding: 5px;
+}
+
+.notice a {
+  text-decoration: none;
+  color: #2980b9;
+}
+
+.notice a:hover {
+  color: #f7f7f7;
+}
+
+/* Header */
+@keyframes fadein2 {
+  100% {
+    opacity: 1;
+  }
+}
+
+header {
+  position: relative;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20px 40px;
+  animation: 1s fadein2 0.5s forwards;
+  opacity: 0;
+  z-index: 1;
+}
+
+header h2 {
+  color: #006266;
+}
+
+.location {
+  display: flex;
+  justify-content: space-around;
+  width: 200px;
+}
+
+.city_color {
+  color: #006266;
+}
+
+.red {
+  color: #c0392b;
+}
+
+.blue {
+  color: #1b9cfc;
+}
+
+@media all and (max-width: 500px) {
+  header {
+    justify-content: space-evenly;
+  }
+}
+
+/* Clock section */
+.clockContainer {
+  width: 360px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.clock {
+  font-size: 90px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Greeting */
+.form,
+.greeting {
+  display: none;
+}
+
+.showing {
+  display: block;
+}
+
+.form input {
+  font-size: 20px;
+  padding: 10px 10px;
+  text-align: center;
+}
+
+/* to do list */
+
+.listContainer {
+  width: 360px;
+  background: #f7f7f7;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  margin-top: 0;
+}
+
+.listContainer h2 {
+  background: #2980b9;
+  color: white;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.listContainer ul {
+  list-style: none;
+}
+
+.listContainer li {
+  background: white;
+  height: 40px;
+  line-height: 40px;
+  color: #666;
+}
+
+.listContainer li:nth-child(2n) {
+  background: #f7f7f7;
+}
+
+.listContainer input {
+  color: #2980b9;
+  font-size: 18px;
+  background-color: #f7f7f7;
+  width: 100%;
+  padding: 13px 13px 13px 20px;
+  border: 3px solid rgba(0, 0, 0, 0);
+}
+
+.listContainer input:focus {
+  background: white;
+  border: 3px solid #2980b9;
+  outline: none;
+}
+
+.listContainer i {
+  color: #e74c3c;
+  margin-right: 20px;
+  text-align: center;
+  width: 0;
+  margin-top: 0;
+  display: inline-block;
+  transition: 0.3s linear;
+  opacity: 0;
+}
+
+.listContainer li:hover i {
+  width: 40px;
+  opacity: 1;
+}
