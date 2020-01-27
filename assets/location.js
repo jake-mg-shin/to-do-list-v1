@@ -7,7 +7,7 @@ function autoRefresh() {
   // temp updates every 5 min
   setTimeout(() => {
     location.reload(true);
-  }, 300000);
+  }, 600000);
 }
 
 function getWeather(lat, lon) {
