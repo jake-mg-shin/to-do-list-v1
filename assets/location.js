@@ -3,16 +3,16 @@ const api_key = "a339da6f28089d15cee7a8cb54084f1d";
 const js_city = document.querySelector("#js-location"),
   js_temp = document.querySelector("#js-temp");
 
-function autoRefresh() {
+autoRefresh = () => {
   // temp updates every 5 min
   setTimeout(() => {
     location.reload(true);
   }, 600000);
-}
+};
 
-function getWeather(lat, lon) {
+getWeather = async (lat, lon) => {
   // get temp at current location
-  fetch(
+  await fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`
   )
     .then(res => {
@@ -51,19 +51,19 @@ function getWeather(lat, lon) {
       }
       icon2.innerHTML = ` ${temp}`;
     });
-}
+};
 
-function saveCoords(coordsObj) {
+saveCoords = coordsObj => {
   // save data to local storage : setItem
   // json => string
   localStorage.setItem(coords_LS, JSON.stringify(coordsObj));
-}
+};
 
-function handleGeoErr(err) {
+handleGeoErr = err => {
   console.log(err);
-}
+};
 
-function handleGeoSuccess(position) {
+handleGeoSuccess = position => {
   // get lat and lon
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
@@ -76,15 +76,15 @@ function handleGeoSuccess(position) {
   saveCoords(coordsObj);
   // get weather
   getWeather(latitude, longitude);
-}
+};
 
-function askForCoords() {
+askForCoords = () => {
   // need coordinates : latitude, longitude
   // location API
   navigator.geolocation.getCurrentPosition(handleGeoSuccess, handleGeoErr);
-}
+};
 
-function loadCoords() {
+loadCoords = () => {
   // loads saved data of coords : getItem
   const loadedCoords = localStorage.getItem(coords_LS);
   if (loadedCoords === null) {
@@ -96,13 +96,13 @@ function loadCoords() {
     const parsedCoords = JSON.parse(loadedCoords);
     getWeather(parsedCoords.latitude, parsedCoords.longitude);
   }
-}
+};
 
-function init() {
+init = () => {
   // get location => weather(temperature)
   loadCoords();
   // page refresh for updating temp
   autoRefresh();
-}
+};
 
 init();

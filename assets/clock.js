@@ -1,6 +1,6 @@
 const clock = document.querySelector("#js-clock");
 
-function getTime() {
+getTime = () => {
   // get date
   const date = new Date();
   const hours = date.getHours(),
@@ -10,13 +10,13 @@ function getTime() {
   clock.innerHTML = `${hours < 10 ? `0${hours}` : hours}:${
     minutes < 10 ? `0${minutes}` : minutes
   }:${seconds < 10 ? `0${seconds}` : seconds}`;
-}
+};
 
-function init() {
+init = () => {
   // get time
   getTime();
   // time interval every 1s
   setInterval(getTime, 1000);
-}
+};
 
 init();

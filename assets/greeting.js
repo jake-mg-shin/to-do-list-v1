@@ -5,19 +5,19 @@ const form = document.querySelector("#js-form"),
 const user_LS = "currentUser",
   showing_CN = "showing";
 
-function saveName(name) {
+saveName = name => {
   // save user's name to local storage
   localStorage.setItem(user_LS, name);
-}
+};
 
-function showGreeting(text) {
+showGreeting = name => {
   // display greeting message when cancel displayed form
   form.classList.remove(showing_CN);
   greeting.classList.add(showing_CN);
-  greeting.innerHTML = `Hello ${text}, how are you today?`;
-}
+  greeting.innerHTML = `Hello ${name}, how are you today?`;
+};
 
-function handleSubmit(event) {
+handleSubmit = event => {
   // page refresh issue when submit
   // avoid page refresh
   event.preventDefault();
@@ -25,16 +25,16 @@ function handleSubmit(event) {
 
   showGreeting(currentValue);
   saveName(currentValue);
-}
+};
 
-function askForName() {
+askForName = () => {
   // display form
   form.classList.add(showing_CN);
   // when submit, save name and display it
   form.addEventListener("submit", handleSubmit);
-}
+};
 
-function loadName() {
+loadName = () => {
   // load saved data
   const currentUser = localStorage.getItem(user_LS);
   if (currentUser === null) {
@@ -44,11 +44,11 @@ function loadName() {
     // current user is
     showGreeting(currentUser);
   }
-}
+};
 
-function init() {
+init = () => {
   // display user's name
   loadName();
-}
+};
 
 init();

@@ -1,27 +1,66 @@
 /* General */
-* {
+*,
+*::before,
+*::after {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+:root {
+  --ff-primary: "Source Sans Pro", sans-serif;
+  --ff-secondary: "Source Code Pro", monospace;
+
+  --fw-reg: 300;
+  --fw-bold: 900;
+
+  --clr-light: #fff;
+  --clr-dark: rgb(32, 23, 77);
+  --clr-accent: rgb(58, 174, 139);
+
+  --fs-h1: 3rem;
+  --fs-h2: 2.25rem;
+  --fs-h3: 1.25rem;
+  --fs-body: 1rem;
+
+  --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+    0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
+}
+/* @media (min-width: 800px) {
+  :root {
+    --fs-h1: 4.5rem;
+    --fs-h2: 3.75rem;
+    --fs-h3: 1.5rem;
+    --fs-body: 1.125rem;
+  }
+} */
 .margin_50 {
   margin: 50px auto;
 }
-
 .margin_100 {
   margin: 100px auto;
 }
-
 .opacity {
-  opacity: 0.7;
+  opacity: 0.6;
 }
-
 html {
   font: normal 16px sans-serif;
   color: #f7f7f7;
 }
 
+/* Background Image */
+.bgImg {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 1000px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: fadeIn 1s linear;
+}
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -31,90 +70,71 @@ html {
   }
 }
 
-.bgImg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: auto;
-  animation: fadeIn 1s linear;
-}
-
-@media all and (max-width: 1200px) {
-  .bgImg {
-    width: 1400px;
-  }
-}
-
 /* Notice */
-.notice {
+/* .notice {
   position: relative;
-  font-size: 15px;
+  font-size: 10px;
   display: flex;
   flex-direction: row-reverse;
   align-items: flex-end;
 }
-
 .notice span {
   background-color: #555;
   padding: 5px;
 }
-
 .notice a {
   text-decoration: none;
   color: #2980b9;
 }
-
 .notice a:hover {
   color: #f7f7f7;
-}
+} */
 
 /* Header */
-@keyframes fadein2 {
-  100% {
-    opacity: 1;
-  }
-}
-
-header {
+.header {
   position: relative;
   font-size: 18px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
-  padding: 20px 40px;
+  padding: 8px 16px;
   animation: 1s fadein2 0.5s forwards;
   opacity: 0;
   z-index: 1;
+  background-color: var(--clr-light);
 }
-
-header h2 {
-  color: #006266;
+@keyframes fadein2 {
+  100% {
+    opacity: 1;
+  }
 }
-
+.logo {
+  display: flex;
+  align-items: center;
+}
+header p {
+  padding-left: 5px;
+  color: var(--clr-dark);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+}
 .location {
   display: flex;
-  justify-content: space-around;
-  width: 200px;
 }
-
 .city_color {
-  color: #006266;
+  color: var(--clr-accent);
+  padding-right: 1rem;
 }
-
 .red {
   color: #c0392b;
 }
-
 .blue {
   color: #1b9cfc;
 }
-
-@media all and (max-width: 500px) {
+@media all and (max-width: 550px) {
   header {
-    justify-content: space-evenly;
+    justify-content: space-around;
   }
 }
 
@@ -124,10 +144,10 @@ header h2 {
   text-align: center;
   margin-bottom: 50px;
 }
-
 .clock {
   font-size: 90px;
-  color: #555;
+  /* color: #555; */
+  color: var(--clr-dark);
   margin-bottom: 20px;
 }
 
@@ -136,11 +156,9 @@ header h2 {
 .greeting {
   display: none;
 }
-
 .showing {
   display: block;
 }
-
 .form input {
   font-size: 20px;
   padding: 10px 10px;
@@ -148,14 +166,12 @@ header h2 {
 }
 
 /* to do list */
-
 .listContainer {
   width: 360px;
   background: #f7f7f7;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   margin-top: 0;
 }
-
 .listContainer h2 {
   background: #2980b9;
   color: white;
@@ -163,22 +179,18 @@ header h2 {
   text-transform: uppercase;
   font-weight: normal;
 }
-
 .listContainer ul {
   list-style: none;
 }
-
 .listContainer li {
   background: white;
   height: 40px;
   line-height: 40px;
   color: #666;
 }
-
 .listContainer li:nth-child(2n) {
   background: #f7f7f7;
 }
-
 .listContainer input {
   color: #2980b9;
   font-size: 18px;
@@ -187,13 +199,11 @@ header h2 {
   padding: 13px 13px 13px 20px;
   border: 3px solid rgba(0, 0, 0, 0);
 }
-
 .listContainer input:focus {
   background: white;
   border: 3px solid #2980b9;
   outline: none;
 }
-
 .listContainer i {
   color: #e74c3c;
   margin-right: 20px;
@@ -204,7 +214,6 @@ header h2 {
   transition: 0.3s linear;
   opacity: 0;
 }
-
 .listContainer li:hover i {
   width: 40px;
   opacity: 1;

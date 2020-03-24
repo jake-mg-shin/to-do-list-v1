@@ -3,10 +3,9 @@ const todoForm = document.querySelector("#js-todoForm"),
   todoList = document.querySelector("#js-todoList");
 
 const todos_LS = "todos";
-
 let todos_arr = [];
 
-function delTodos() {
+delTodos = () => {
   // need to know which icon is clicked
   const del = event.target;
   // parent of icon
@@ -23,21 +22,21 @@ function delTodos() {
   todos_arr = removedTodos;
 
   saveTodos();
-}
+};
 
-function handleSubmit(event) {
+handleSubmit = event => {
   event.preventDefault();
   const currentValue = todoInput.value;
   // no showing issue => text
   todoInput.value = "";
   showTodos(currentValue);
-}
+};
 
-function saveTodos() {
+saveTodos = () => {
   localStorage.setItem(todos_LS, JSON.stringify(todos_arr));
-}
+};
 
-function showTodos(text) {
+showTodos = text => {
   const li = document.createElement("li");
   const icon = document.createElement("i");
   const strong = document.createElement("strong");
@@ -65,9 +64,9 @@ function showTodos(text) {
   todos_arr.push(todos_obj);
 
   saveTodos();
-}
+};
 
-function loadTodos() {
+loadTodos = () => {
   // load saved data of todos
   const loadTodos = localStorage.getItem(todos_LS);
   if (loadTodos !== null) {
@@ -80,14 +79,14 @@ function loadTodos() {
       showTodos(todo.text);
     });
   }
-}
+};
 
-function init() {
+init = () => {
   // load saved todos
   loadTodos();
   // not always load and input todos are happened at same time
   // input new todo
   todoForm.addEventListener("submit", handleSubmit);
-}
+};
 
 init();
