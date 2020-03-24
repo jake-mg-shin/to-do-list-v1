@@ -1,15 +1,12 @@
-const container = document.querySelector("#container");
+const bg = document.querySelector("#bg");
 
 // Numbers of total pics
 const numbersOfImg = 4;
 
 // pick a img to bg img
 bgImg = imgNum => {
-  container.setAttribute(
-    "style",
-    `background-image: url("src/images/${imgNum}.jpg")`
-  );
-  container.classList.add("bgImg");
+  bg.setAttribute("style", `background-image: url("src/images/${imgNum}.jpg")`);
+  bg.classList.add("bgImg");
   // const img = new Image();
   // img.src = `src/images/${imgNum}.jpg`;
   // img.classList.add("bgImg");
