@@ -1,16 +1,16 @@
-# to-do-list-v1
-To-Do List with Javascript
+# To-Do App
 
+>This To-Do app is my first result by only JavaScript. Although the base concept was from a chrome web application as [Momentum](https://chrome.google.com/webstore/detail/momentum/laookkfknpbbblfpciffpaejjkokdgca?hl=fr), I focused on the part of To-Do List more. Check it out, my ***[To-Do App](https://jake-mg-shin.github.io/to-do-list-v1/)***.
 
-### note: Feb 9, 2020
+### About
 
-#### found some problem
-- API does not work at MS Explorer
-- Should aviod the page refresh timing for writing to-do:
-  - The writing will be disappeared when page refresh, if the writing is not done
-- To-do list can be gotten out of th to-do-list table if the to-do is longer than table
+- Showing information as time, temperature, and location info from the API.
+- Changing the colour depends on the current temperature.
+- Providing to create or remove the To-Do List.
 
-#### need to improve 
-- Display a sign on completed to-do
-- Display current location on a map
-- Make reordering of to-do by priority
+### Built with
+
+- JavaScript | HTML | CSS
+- API | DOM | JSON | Local Storage
+- Git | Github
+- Responsive Web
