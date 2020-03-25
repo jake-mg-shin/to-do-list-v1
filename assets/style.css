@@ -4,6 +4,7 @@
 *::after {
   padding: 0;
   margin: 0;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -17,6 +18,8 @@
   --clr-light: #fff;
   --clr-dark: rgb(32, 23, 77);
   --clr-accent: rgb(58, 174, 139);
+  --clr-red: #c0392b;
+  --clr-blue: #1b9cfc;
 
   --fs-h1: 3rem;
   --fs-h2: 2.25rem;
@@ -26,14 +29,6 @@
   --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
     0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15);
 }
-/* @media (min-width: 800px) {
-  :root {
-    --fs-h1: 4.5rem;
-    --fs-h2: 3.75rem;
-    --fs-h3: 1.5rem;
-    --fs-body: 1.125rem;
-  }
-} */
 .margin_50 {
   margin: 50px auto;
 }
@@ -41,11 +36,11 @@
   margin: 100px auto;
 }
 .opacity {
-  opacity: 0.6;
+  opacity: 0.7;
 }
 html {
-  font: normal 16px sans-serif;
-  color: #f7f7f7;
+  font: normal 16px var(--ff-primary);
+  color: var(--clr-light);
 }
 
 /* Background Image */
@@ -59,7 +54,16 @@ html {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  -webkit-animation: fadeIn 1s linear;
   animation: fadeIn 1s linear;
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @keyframes fadeIn {
   from {
@@ -70,39 +74,32 @@ html {
   }
 }
 
-/* Notice */
-/* .notice {
-  position: relative;
-  font-size: 10px;
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: flex-end;
-}
-.notice span {
-  background-color: #555;
-  padding: 5px;
-}
-.notice a {
-  text-decoration: none;
-  color: #2980b9;
-}
-.notice a:hover {
-  color: #f7f7f7;
-} */
-
 /* Header */
 .header {
   position: relative;
   font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   padding: 8px 16px;
+  -webkit-animation: 1s fadein2 0.5s forwards;
   animation: 1s fadein2 0.5s forwards;
   opacity: 0;
   z-index: 1;
   background-color: var(--clr-light);
+}
+@-webkit-keyframes fadein2 {
+  100% {
+    opacity: 1;
+  }
 }
 @keyframes fadein2 {
   100% {
@@ -110,7 +107,11 @@ html {
   }
 }
 .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 header p {
@@ -120,6 +121,8 @@ header p {
   font-weight: var(--fw-bold);
 }
 .location {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .city_color {
@@ -127,13 +130,14 @@ header p {
   padding-right: 1rem;
 }
 .red {
-  color: #c0392b;
+  color: var(--clr-red);
 }
 .blue {
-  color: #1b9cfc;
+  color: var(--clr-blue);
 }
 @media all and (max-width: 550px) {
   header {
+    -ms-flex-pack: distribute;
     justify-content: space-around;
   }
 }
@@ -146,7 +150,6 @@ header p {
 }
 .clock {
   font-size: 90px;
-  /* color: #555; */
   color: var(--clr-dark);
   margin-bottom: 20px;
 }
@@ -168,13 +171,14 @@ header p {
 /* to do list */
 .listContainer {
   width: 360px;
-  background: #f7f7f7;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  background: var(--clr-light);
+  -webkit-box-shadow: 0 0 3px var(--bs);
+  box-shadow: 0 0 3px var(--bs);
   margin-top: 0;
 }
 .listContainer h2 {
-  background: #2980b9;
-  color: white;
+  background: var(--clr-accent);
+  color: var(--clr-light);
   padding: 10px 20px;
   text-transform: uppercase;
   font-weight: normal;
@@ -183,34 +187,36 @@ header p {
   list-style: none;
 }
 .listContainer li {
-  background: white;
+  background: var(--clr-light);
   height: 40px;
   line-height: 40px;
-  color: #666;
+  color: var(--clr-dark);
 }
 .listContainer li:nth-child(2n) {
-  background: #f7f7f7;
+  background: lightgray;
 }
 .listContainer input {
-  color: #2980b9;
+  color: var(--clr-dark);
   font-size: 18px;
-  background-color: #f7f7f7;
+  background-color: lightgray;
   width: 100%;
   padding: 13px 13px 13px 20px;
-  border: 3px solid rgba(0, 0, 0, 0);
+  border: 3px solid var(--bs);
 }
 .listContainer input:focus {
-  background: white;
-  border: 3px solid #2980b9;
+  background: var(--clr-light);
+  border: 3px solid var(--clr-accent);
   outline: none;
 }
 .listContainer i {
-  color: #e74c3c;
+  color: var(--clr-red);
   margin-right: 20px;
   text-align: center;
   width: 0;
   margin-top: 0;
   display: inline-block;
+  -webkit-transition: 0.3s linear;
+  -o-transition: 0.3s linear;
   transition: 0.3s linear;
   opacity: 0;
 }
