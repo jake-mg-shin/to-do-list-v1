@@ -4,9 +4,9 @@
 
 ## About
 
+- Providing to create or remove the To-Do List.
 - Showing information as time, temperature, and location info from the API.
 - Changing the colour depends on the current temperature.
-- Providing to create or remove the To-Do List.
 
 ## Built with
 
